@@ -1,7 +1,7 @@
 import time
 import random
 import pygame
-from syslcd import CGGPYG
+from syslogic import CGGPYG
 
 class Life:
     def __init__(self):
