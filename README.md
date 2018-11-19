@@ -7,6 +7,10 @@ to draw oldPC-like text character, graphic character and text strings.
 ## [use for]
 create game without image files, add scoring display in your own game easily.
 
+## [depends on]
+
+python2, pygame
+
 ## [initialize]
 
 from syslogic.CGGPYG import *
