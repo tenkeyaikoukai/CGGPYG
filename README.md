@@ -2,16 +2,18 @@
 the 8bit-like character displaying library with pygame
 
 ## [what is CGGPYG?]
-to draw oldPC-like text character, graphic character and text strings.
+to draw oldPC-like text characters, graphics character and text strings like below:
 
-## [use for]
+<img src="river1.jpg" />
+
+## use for
 create game without image files, add scoring display in your own game easily.
 
-## [depends on]
+## depends on
 
 python2, pygame
 
-## [initialize]
+## initialize in python script
 
 from syslogic.CGGPYG import *
 
@@ -19,7 +21,7 @@ in the head of your program and create object
 
 cgg=CGGPYG()
 
-## [methods]
+## methods
 
 def putc(chrname,x,y)
 
