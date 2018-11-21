@@ -1,53 +1,39 @@
+
 import pygame
+
+"""CGGPYG the character drawing python-pygame library"""
+"""v1.0 2018 tenkey aikoukai"""
 
 class CGGPYG:
 
-    def __init__(self,cvs):
+    def __init__(self):
         pygame.init()
+        self.datainit()
         self.cvs=pygame.display.set_mode((640,480))
-        self.myclock=pygame.time.Clock() 
-        self.myclock.tick(60); 
+        self.setcolor(7)
    
-
-    def makeobj(self,str,cx,cy,name):
-        self.putobj(self,str,[0,8,5],cx,cy,name)
-    def putobj(self,str,chrctx,cx,cy,name):
-        chr=self.chrname(str)
-        for i in range(0,chrctx[2]):
-            for j in range(0,chrctx[1]):
-                if chr[i*chrctx[1]+j]==1:
-                    if chrctx[0]==0: 
-                    if chrctx[0]==1: 
-                        rect=((cx+j)*2,cy*4+i*3,(cx+j)*2+1,cy*4+i*3+2);
-                        pygame.draw.rect(self.cvs,self.color,rect);
-                    if chrctx[0]==2: 
-                        rect=((cx+j)*2,(cy+i)*4,(cx+j)*2+1,(cy+i)*4+3);
-                        pygame.draw.rect(self.cvs,self.color,rect);
     def putc(self,str,chrctx,cx,cy):
         chr=self.chrname(str)
         for i in range(0,chrctx[2]):
             for j in range(0,chrctx[1]):
                 if chr[i*chrctx[1]+j]==1:
                     if chrctx[0]==0: 
-                        rect=((cx+j)*4,(cy+i)*4,(cx+j)*4+4,(cy+i)*4+4);
-                        pygame.draw.rect(self.cvs,self.color,rect); 
+                        rect=((cx+j)*4,(cy+i)*4,4,4)
+                        pygame.draw.rect(self.cvs,self.color,rect) 
                     if chrctx[0]==1: 
-                        rect=((cx+j)*2,cy*4+i*3,(cx+j)*2+1,cy*4+i*3+2); 
-                        pygame.draw.rect(self.cvs,self.color,rect); 
+                        rect=((cx+j)*2,cy*4+i*3,2,3) 
+                        pygame.draw.rect(self.cvs,self.color,rect) 
                     if chrctx[0]==2: 
-                        rect=((cx+j)*2,(cy+i)*4,(cx+j)*2+1,(cy+i)*4+3);
-                        pygame.draw.rect(self.cvs,celf.color,rect); 
+                        rect=((cx+j)*2,(cy+i)*4,2,4)
+                        pygame.draw.rect(self.cvs,self.color,rect) 
     def cls(self):
         rect=(0,0,640,480); 
-        pygame.draw.rect(self.cvs,self.color,rect); 
+        self.setcolor(0);
+        pygame.draw.rect(self.cvs,self.color,rect) 
     def printc(self,str,x,y):
         for i in range(0,len(str)):
             c=str[i]
             self.puth(c,x+i,y)
-    def keyleft(self,ev):
-        self.keyin="left"
-    def keyright(self,ev):
-        self.keyin="right"
     def chrname(self,str):
        if str=="a":
             return self.chra          
@@ -187,26 +173,28 @@ class CGGPYG:
             return self.chr30
        if str=="diamond":
             return self.chr31
+       if str=="circlefill":
+            return self.chr32
        return self.chr0
           
 
     def setcolor(self,cc):
         if cc==0:
-            self.color=(0,0,0);
-        if cc==1:
-            self.color=(0,0,255);
-        if cc==2:
-            self.color=(255,0,0);
-        if cc==3:
-            self.color=(255,0,255);
-        if cc==4:
-            self.color=(0,0,255);
-        if cc==5:
-            self.color=(0,255,255);
-        if cc==6:
-            self.color=(255,255,0);
-        if cc==7:
-            self.color=(255,255,255);
+            self.color=(0,0,0)
+        elif cc==1:
+            self.color=(0,0,255)
+        elif cc==2:
+            self.color=(255,0,0)
+        elif cc==3:
+            self.color=(255,0,255)
+        elif cc==4:
+            self.color=(0,255,0)
+        elif cc==5:
+            self.color=(0,255,255)
+        elif cc==6:
+            self.color=(255,255,0)
+        else:
+            self.color=(255,255,255)
     def put(self,str,x,y):
         ctx=[0,8,5]
         self.putc(str,ctx,x*8,y*5)
@@ -221,7 +209,6 @@ class CGGPYG:
 
     def datainit(self):
 
-        self.keyin=""
         
         self.chra=[0,0,0,1,1,0,0,0,
                    0,0,1,0,0,1,0,0,
@@ -572,5 +559,10 @@ class CGGPYG:
                     0,0,1,1,1,1,1,0,
                     0,0,0,1,1,1,0,0,
                     0,0,0,0,1,0,0,0]
+        self.chr32=[0,0,1,1,1,1,0,0,
+                    0,1,1,1,1,1,1,0,
+                    0,1,1,1,1,1,1,0,
+                    0,1,1,1,1,1,1,0,
+                    0,0,1,1,1,1,0,0]
 
 
