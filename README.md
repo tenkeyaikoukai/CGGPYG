@@ -15,7 +15,7 @@ python2, pygame
 
 ## initialize in python script
 
-from syslogic.CGGPYG import *
+from syslogic import CGGPYG
 
 in the head of your program and create object
 
